@@ -1,12 +1,19 @@
 package menus;
 
+import java.time.Year;
+import java.util.Scanner;
+import java.util.UUID;
+
 import models.*;
+import singleton.Database;
 
 /**
  * The LibrarianMenu class extends the Menu class.
  */
 public class LibrarianMenu extends Menu
 {
+	private Database database;
+	Scanner scan = new Scanner(System.in);
 
     // Constructor
 
@@ -100,9 +107,84 @@ public class LibrarianMenu extends Menu
     /**
      * Adds a new book to the library.
      */
+    
+    private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    private static final int ID_LENGTH = 8;
+    
+    private String generateRandomId() {
+        String id = "";
+        for (int i = 0; i < ID_LENGTH; i++) {
+            int index = (int) (Math.random() * CHARACTERS.length());
+            id += CHARACTERS.charAt(index); // Menambahkan karakter ke string ID
+        }
+        return id;
+    }
+    
     private void addBook()
     {
-        // TODO: Implement addBook method
+    	String id = generateRandomId();
+
+        String title;
+        do {
+            System.out.print("Enter book title (at least 5 characters): ");
+            title = scan.nextLine();
+            if (title.length() < 5) {
+                System.out.println("Title must be at least 5 characters long.");
+            }
+        } while (title.length() < 5);
+
+        String genre;
+        do {
+            System.out.print("Enter book genre (biography, military, revolution): ");
+            genre = scan.nextLine().toLowerCase();
+            if (!genre.equalsIgnoreCase("biography") && !genre.equalsIgnoreCase("military") && !genre.equalsIgnoreCase("revolution")) {
+                System.out.println("Genre must be biography, military, or revolution.");
+            }
+        } while (!genre.equalsIgnoreCase("biography") && !genre.equalsIgnoreCase("military") && !genre.equalsIgnoreCase("revolution"));
+
+        String description;
+        do {
+            System.out.print("Enter book description (at least 5 words): ");
+            description = scan.nextLine();
+            if (description.split("\\s+").length < 5) {
+                System.out.println("Description must contain at least 5 words.");
+            }
+        } while (description.split("\\s+").length < 5);
+
+        int publicationYear;
+        int currentYear = Year.now().getValue();
+        do {
+            System.out.print("Enter publication year (must be " + currentYear + " or later): ");
+            publicationYear = scan.nextInt();
+            scan.nextLine();
+            if (publicationYear < currentYear) {
+                System.out.println("Publication year must be " + currentYear + " or later.");
+            }
+        } while (publicationYear < currentYear);
+
+        System.out.print("Enter book author: ");
+        String author = scan.nextLine();
+        System.out.print("Enter book publisher: ");
+        String publisher = scan.nextLine();
+        System.out.print("Enter book ISBN: ");
+        String isbn = scan.nextLine();
+        System.out.print("Enter book status: ");
+        String status = scan.nextLine();
+
+        if(genre.equalsIgnoreCase("biography")) {
+        	Book book = new BiographyBook(id, title, genre, description, author, publisher, publicationYear, isbn, status);
+        	database.addBook(book);
+        }
+        else if(genre.equalsIgnoreCase("military")) {
+        	Book book = new MilitaryHistoryBook(id, title, genre, description, author, publisher, publicationYear, isbn, status);
+        	database.addBook(book);
+        }
+        else if(genre.equalsIgnoreCase("revolution")) {
+        	Book book = new RevolutionBook(id, title, genre, description, author, publisher, publicationYear, isbn, status);
+        	database.addBook(book);
+        }
+        System.out.println("Book with id " + id + " added successfully.");
+        System.out.println("Press enter to continue...");scan.nextLine();
     }
 
     /**
@@ -118,7 +200,20 @@ public class LibrarianMenu extends Menu
      */
     private void removeBook()
     {
-        // TODO: Implement removeBook method
+    	
+        System.out.print("Enter the ID of the book to delete: ");
+        String id = scan.nextLine();
+        Book book = database.getBookById(id);
+        
+        if(book != null) {
+        	database.deleteBook(id);
+        	System.out.println("Book with ID " + id + " has been deleted.");
+        }else {
+        	System.out.println("Book with ID " + id + " not found.");
+        	System.out.println("Please enter to continue...");scan.nextLine();
+        }
+        System.out.println("Press enter to continue...");scan.nextLine();
+        
     }
 
     /**
