@@ -162,15 +162,29 @@ public class LibrarianMenu extends Menu
                 System.out.println("Publication year must be " + currentYear + " or later.");
             }
         } while (publicationYear < currentYear);
-
-        System.out.print("Enter book author: ");
-        String author = scan.nextLine();
-        System.out.print("Enter book publisher: ");
-        String publisher = scan.nextLine();
+	    
+        String author;
+        do {
+        	System.out.print("Enter book author (at least 5 characters): ");
+            author = scan.nextLine();
+            if(author.length()<5) {
+            	System.out.println("Author must be at least 5 characters long.");
+            }
+        }while(author.length()<5);
+	    
+        String publisher;
+        do {
+        	System.out.print("Enter book publisher (at least 5 characters): ");
+            publisher = scan.nextLine();
+            if(publisher.length()<5) {
+            	System.out.println("Publisher must be at least 5 characters long.");
+            }
+        }while(publisher.length()<5);
+	    
         System.out.print("Enter book ISBN: ");
         String isbn = scan.nextLine();
-        System.out.print("Enter book status: ");
-        String status = scan.nextLine();
+	    
+        String status = "Available";
 
         if(genre.equalsIgnoreCase("biography")) {
         	Book book = new BiographyBook(id, title, genre, description, author, publisher, publicationYear, isbn, status);
