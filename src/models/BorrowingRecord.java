@@ -182,4 +182,22 @@ public class BorrowingRecord
         this.recordStatus = recordStatus;
     }
 
+    // Methods
+
+    /**
+     * Displays the public details of the borrowing record.
+     */
+    public void displayPublicDetails()
+    {
+        System.out.println("[Borrowing Record Details #" + this.id + "]");
+        System.out.println("    Book ID: " + this.bookId);
+        System.out.println("    Patron ID: " + this.patronId);
+        System.out.println("    Librarian ID: " + this.librarianId);
+        System.out.println("    Borrowing Date: " + this.borrowingDate);
+        System.out.println("    Due Date: " + this.dueDate);
+        System.out.println("    Return Date: " + this.returnDate);
+        System.out.println("    Request State: " + this.requestState);
+        System.out.println("    Record Status: " + this.recordStatus);
+    }
+
 }

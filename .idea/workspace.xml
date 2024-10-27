@@ -5,37 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="791509b8-9ac0-4d14-b145-dd3197c52343" name="Changes" comment="- Added Models, Factories, Singleton, Menus, and Main Class.&#10;- Added misc.">
-      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Histopedia.eml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Histopedia.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/BiographyBookFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/BookFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/BorrowingRecordFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/LibrarianFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/MilitaryHistoryBookFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/PatronFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/RevolutionBookFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/factories/UserFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menus/AuthenticationMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menus/LibrarianMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menus/PatronMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/BiographyBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/BorrowingRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Librarian.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/MilitaryHistoryBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Patron.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/RevolutionBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/singleton/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/LibrarianMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/LibrarianMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/PatronMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/PatronMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/BiographyBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BiographyBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/BorrowingRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BorrowingRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MilitaryHistoryBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MilitaryHistoryBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/RevolutionBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RevolutionBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/singleton/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/singleton/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +68,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Coding/Intellij IDEA/Framework Layer Architecture/mysql-connector-java-8.0.24.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Coding/Intellij IDEA/Files/MeksikoDatabaseApp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -129,6 +106,9 @@
       <workItem from="1729102192711" duration="607000" />
       <workItem from="1729103631598" duration="574000" />
       <workItem from="1729236707528" duration="48177000" />
+      <workItem from="1729435764724" duration="4419000" />
+      <workItem from="1729496308799" duration="1600000" />
+      <workItem from="1730036579179" duration="2716000" />
     </task>
     <task id="LOCAL-00001" summary="Added Models.">
       <option name="closed" value="true" />
@@ -186,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729420687394</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- Added Models, Factories, Singleton, Menus, and Main Class.&#10;- Added misc.">
+      <option name="closed" value="true" />
+      <created>1729422986493</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1729422986493</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

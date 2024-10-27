@@ -1,6 +1,9 @@
 package menus;
 
 import models.*;
+import singleton.Database;
+
+import java.util.*;
 
 /**
  * The PatronMenu class extends the Menu class.
@@ -93,7 +96,24 @@ public class PatronMenu extends Menu
      */
     private void viewCurrentlyBorrowedBooks()
     {
-        // TODO: Implement viewCurrentlyBorrowedBooks method
+        ArrayList<Book> books = Database.getInstance().getBorrowedBooksByPatronId(currentUser.getId());
+
+        if (books.isEmpty())
+        {
+            System.out.println("You currently have no books being borrowed yet.");
+        }
+        else
+        {
+            System.out.println("Books currently borrowed by " + currentUser.getUsername() + ":");
+            System.out.println("----------------------------------");
+
+            for (Book book : books)
+            {
+                book.displayDetails();
+            }
+
+            System.out.println("----------------------------------");
+        }
     }
 
     /**
@@ -101,7 +121,24 @@ public class PatronMenu extends Menu
      */
     private void seeBorrowingRecords()
     {
-        // TODO: Implement seeBorrowingRecords method
+        ArrayList<BorrowingRecord> records = Database.getInstance().getBorrowingRecordsByPatronId(currentUser.getId());
+
+        if (records.isEmpty())
+        {
+            System.out.println("You have no borrowing records yet.");
+        }
+        else
+        {
+            System.out.println("Borrowing records of " + currentUser.getUsername() + ":");
+            System.out.println("----------------------------------");
+
+            for (BorrowingRecord record : records)
+            {
+                record.displayPublicDetails();
+            }
+
+            System.out.println("----------------------------------");
+        }
     }
 
     /**

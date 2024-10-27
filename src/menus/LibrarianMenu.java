@@ -1,6 +1,7 @@
 package menus;
 
 import java.time.Year;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -221,7 +222,57 @@ public class LibrarianMenu extends Menu
      */
     private void updateBorrowingRecordStatus()
     {
-        // TODO: Implement updateBorrowingRecordStatus method
+        System.out.print("Enter patron ID: ");
+        String patronId = scan.nextLine();
+
+        ArrayList<BorrowingRecord> records = Database.getInstance().getBorrowingRecordsByPatronId(patronId);
+
+        if(records.isEmpty())
+        {
+            System.out.println("No borrowing records found for patron with ID " + patronId + ".");
+        }
+        else
+        {
+            System.out.println("Borrowing records of patron with ID " + patronId + ":");
+            System.out.println("----------------------------------");
+
+            for (BorrowingRecord record : records)
+            {
+                record.displayPublicDetails();
+            }
+
+            System.out.println("----------------------------------");
+
+            System.out.print("Enter borrowing record ID to edit: ");
+            String recordId = scan.nextLine();
+            BorrowingRecord record = Database.getInstance().getBorrowingRecordById(recordId);
+
+            if (record != null)
+            {
+                System.out.print("Enter new status (Active, Returned, Returned Overdue, Overdue): ");
+                String status = scan.nextLine();
+
+                if (status != null
+                        && (status.equals("Active")
+                        || status.equals("Returned")
+                        || status.equals("Returned Overdue")
+                        || status.equals("Overdue")))
+                {
+                    record.setRecordStatus(status);
+                    Database.getInstance().updateBorrowingRecord(record);
+
+                    System.out.println("Borrowing record status updated successfully.");
+                }
+                else
+                {
+                    System.out.println("Invalid status. Please try again.");
+                }
+            }
+            else
+            {
+                System.out.println("Borrowing record with ID " + recordId + " not found.");
+            }
+        }
     }
 
     // Utilities

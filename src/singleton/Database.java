@@ -301,6 +301,74 @@ public class Database
     }
 
     /**
+     * Retrieves a borrowing record from the database by its unique identifier.
+     *
+     * @param patronId the ID of the patron
+     * @return the BorrowingRecord object, or null if not found
+     */
+    public ArrayList<BorrowingRecord> getBorrowingRecordsByPatronId(String patronId)
+    {
+        ArrayList<BorrowingRecord> borrowingRecords = new ArrayList<BorrowingRecord>();
+
+        String query = "SELECT * FROM borrowing_records WHERE patron_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query))
+        {
+            statement.setString(1, patronId);
+
+            ResultSet results = statement.executeQuery();
+
+            while (results.next())
+            {
+                BorrowingRecord borrowingRecord = BorrowingRecordFactory.createBorrowingRecord(results.getString("id"),
+                        results.getString("book_id"), results.getString("patron_id"), results.getString("librarian_id"),
+                        results.getString("record_status"), results.getDate("borrowing_date"),
+                        results.getDate("due_date"), results.getInt("request_state"), results.getDate("return_date"));
+
+                borrowingRecords.add(borrowingRecord);
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Query error detected.\nDetails:\n" + ex.getMessage());
+        }
+
+        return borrowingRecords;
+    }
+
+    /**
+     * Retrieves a borrowing record from the database by its unique identifier.
+     *
+     * @param id the ID of the borrowing record
+     * @return the BorrowingRecord object, or null if not found
+     */
+    public BorrowingRecord getBorrowingRecordById(String id)
+    {
+        String query = "SELECT * FROM borrowing_records WHERE id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query))
+        {
+            statement.setString(1, id);
+
+            ResultSet results = statement.executeQuery();
+
+            if (results.next())
+            {
+                BorrowingRecord borrowingRecord = BorrowingRecordFactory.createBorrowingRecord(results.getString("id"),
+                        results.getString("book_id"), results.getString("patron_id"), results.getString("librarian_id"),
+                        results.getString("record_status"), results.getDate("borrowing_date"),
+                        results.getDate("due_date"), results.getInt("request_state"), results.getDate("return_date"));
+
+                return borrowingRecord;
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println("Query error detected.\nDetails:\n" + ex.getMessage());
+        }
+
+        return null;
+    }
+
+    /**
      * Adds a new borrowing record to the database.
      *
      * @param borrowingRecord the BorrowingRecord object to add

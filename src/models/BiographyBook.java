@@ -43,17 +43,15 @@ public class BiographyBook extends Book
     public void displayDetails()
     {
         displayHeader();
-        System.out.println("----------------------------------");
-        System.out.println("ID: " + this.getId() + "\n" +
-                            "Title: " + this.getTitle() + "\n" +
-                            "Genre: " + this.getGenre() + "\n" +
-                            "Description: " + this.getDescription() + "\n" +
-                            "Author: " + this.getAuthor() + "\n" +
-                            "Publisher: " + this.getPublisher() + "\n" +
-                            "Publication Year: " + this.getPublicationYear() + "\n" +
-                            "ISBN: " + this.getIsbn() + "\n" +
-                            "Status: " + this.getStatus());
-        System.out.println("----------------------------------");
+        System.out.println("    ID: " + this.getId() + "\n" +
+                "   Title: " + this.getTitle() + "\n" +
+                "   Genre: " + this.getGenre() + "\n" +
+                "   Description: " + this.getDescription() + "\n" +
+                "   Author: " + this.getAuthor() + "\n" +
+                "   Publisher: " + this.getPublisher() + "\n" +
+                "   Publication Year: " + this.getPublicationYear() + "\n" +
+                "   ISBN: " + this.getIsbn() + "\n" +
+                "   Status: " + this.getStatus());
     }
 
 }
