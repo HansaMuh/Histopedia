@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="791509b8-9ac0-4d14-b145-dd3197c52343" name="Changes" comment="- Added Models, Factories, Singleton, Menus, and Main Class.&#10;- Added misc.">
+    <list default="true" id="791509b8-9ac0-4d14-b145-dd3197c52343" name="Changes" comment="refactor: rewrite menu methods">
+      <change afterPath="$PROJECT_DIR$/histopedia.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/LibrarianMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/LibrarianMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menus/PatronMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/PatronMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/BiographyBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BiographyBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/BorrowingRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/BorrowingRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/MilitaryHistoryBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MilitaryHistoryBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/RevolutionBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RevolutionBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/singleton/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/singleton/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,30 +56,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Coding/Intellij IDEA/Files/MeksikoDatabaseApp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Coding/Intellij IDEA/Framework Layer Architecture/Histopedia (emergency exit)",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="Histopedia" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -108,7 +113,19 @@
       <workItem from="1729236707528" duration="48177000" />
       <workItem from="1729435764724" duration="4419000" />
       <workItem from="1729496308799" duration="1600000" />
-      <workItem from="1730036579179" duration="2716000" />
+      <workItem from="1730036579179" duration="3165000" />
+      <workItem from="1730100543692" duration="71000" />
+      <workItem from="1730404337616" duration="68000" />
+      <workItem from="1732557943522" duration="2428000" />
+      <workItem from="1732610354528" duration="7537000" />
+      <workItem from="1733200896252" duration="22000" />
+      <workItem from="1735807355047" duration="48000" />
+      <workItem from="1735807563976" duration="1185000" />
+      <workItem from="1735808790972" duration="294000" />
+      <workItem from="1735809110485" duration="850000" />
+      <workItem from="1735810603142" duration="1679000" />
+      <workItem from="1735893325397" duration="2404000" />
+      <workItem from="1735909811588" duration="17252000" />
     </task>
     <task id="LOCAL-00001" summary="Added Models.">
       <option name="closed" value="true" />
@@ -174,11 +191,86 @@
       <option name="project" value="LOCAL" />
       <updated>1729422986493</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="- Added more Database methods related to Borrowing Record.&#10;- Added the menu functions for currently borrowed books and borrowing records (both by view and update).">
+      <option name="closed" value="true" />
+      <created>1730039554974</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730039554976</updated>
+    </task>
+    <task id="LOCAL-00010" summary="- Added the menu function for Borrowing Record (by update).">
+      <option name="closed" value="true" />
+      <created>1730039785145</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730039785145</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: add book controller for database methods relating to books">
+      <option name="closed" value="true" />
+      <created>1735934235964</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735934235964</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: add borrowing record controller for database methods relating to borrowing records">
+      <option name="closed" value="true" />
+      <created>1735934288760</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1735934288760</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: add user controller for database methods relating to users">
+      <option name="closed" value="true" />
+      <created>1735934304941</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1735934304941</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactor: implement constructors for classes with default values">
+      <option name="closed" value="true" />
+      <created>1735934399394</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1735934399394</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor: rewrite menu methods">
+      <option name="closed" value="true" />
+      <created>1735934490938</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1735934490938</updated>
+    </task>
+    <task id="LOCAL-00016" summary="refactor: rewrite database implementation">
+      <option name="closed" value="true" />
+      <created>1735934515223</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1735934515223</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Factories." />
@@ -188,8 +280,16 @@
     <MESSAGE value="Added misc." />
     <MESSAGE value="Added Models." />
     <MESSAGE value="Added VCS." />
+    <MESSAGE value="- Added more Database methods related to Borrowing Record.&#10;- Added the menu functions for currently borrowed books and borrowing records (both by view and update)." />
+    <MESSAGE value="- Added the menu function for Borrowing Record (by update)." />
+    <MESSAGE value="feat: add book controller for database methods relating to books" />
+    <MESSAGE value="feat: add borrowing record controller for database methods relating to borrowing records" />
+    <MESSAGE value="feat: add user controller for database methods relating to users" />
+    <MESSAGE value="refactor: implement constructors for classes with default values" />
     <MESSAGE value="- Added Models, Factories, Singleton, Menus, and Main Class.&#10;- Added misc." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added Models, Factories, Singleton, Menus, and Main Class.&#10;- Added misc." />
+    <MESSAGE value="refactor: rewrite menu methods" />
+    <MESSAGE value="refactor: rewrite database implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: rewrite database implementation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
