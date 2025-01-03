@@ -1,5 +1,6 @@
 package menus;
 
+import factories.BorrowingRecordFactory;
 import models.*;
 import singleton.Database;
 
@@ -37,7 +38,7 @@ public class PatronMenu extends Menu
     /**
      * The content of the authentication menu.
      */
-    private final String MENU_CONTENT = "Welcome to Histopedia, " + currentUser.getUsername() + "!\n" +
+    private final String MENU_CONTENT = "Welcome to Histopedia, " + currentUser.getUsername() + "! You're currently logged in as a Patron.\n" +
             "1. View books\n" +
             "2. View currently borrowed books\n" +
             "3. See borrowing records with status\n" +
@@ -81,6 +82,13 @@ public class PatronMenu extends Menu
     private void logout()
     {
         // TODO: Implement logout process
+        isRunning = false;
+
+        System.out.println("Logged out successfully.");
+        System.out.println("Press enter to continue...");
+        menuScanner.nextLine();
+
+        new AuthenticationMenu();
     }
 
     /**
@@ -89,6 +97,13 @@ public class PatronMenu extends Menu
     private void viewBooks()
     {
         // TODO: Implement viewBooks method
+        ArrayList<Book> books = bookController.getBooksByAll();
+
+        displayBooks(books);
+
+        System.out.println();
+        System.out.println("Press enter to continue...");
+        menuScanner.nextLine();
     }
 
     /**
@@ -96,7 +111,7 @@ public class PatronMenu extends Menu
      */
     private void viewCurrentlyBorrowedBooks()
     {
-        ArrayList<Book> books = Database.getInstance().getBorrowedBooksByPatronId(currentUser.getId());
+        ArrayList<Book> books = bookController.getBorrowedBooksByPatronId(currentUser.getId());
 
         if (books.isEmpty())
         {
@@ -104,7 +119,7 @@ public class PatronMenu extends Menu
         }
         else
         {
-            System.out.println("Books currently borrowed by " + currentUser.getUsername() + ":");
+            System.out.println(books.size() + " books currently borrowed by " + currentUser.getUsername() + ":");
             System.out.println("----------------------------------");
 
             for (Book book : books)
@@ -114,6 +129,10 @@ public class PatronMenu extends Menu
 
             System.out.println("----------------------------------");
         }
+
+        System.out.println();
+        System.out.println("Press enter to continue...");
+        menuScanner.nextLine();
     }
 
     /**
@@ -121,7 +140,7 @@ public class PatronMenu extends Menu
      */
     private void seeBorrowingRecords()
     {
-        ArrayList<BorrowingRecord> records = Database.getInstance().getBorrowingRecordsByPatronId(currentUser.getId());
+        ArrayList<BorrowingRecord> records = borrowingRecordController.getBorrowingRecordsByPatronId(currentUser.getId());
 
         if (records.isEmpty())
         {
@@ -139,6 +158,10 @@ public class PatronMenu extends Menu
 
             System.out.println("----------------------------------");
         }
+
+        System.out.println();
+        System.out.println("Press enter to continue...");
+        menuScanner.nextLine();
     }
 
     /**
@@ -147,6 +170,39 @@ public class PatronMenu extends Menu
     private void browseBooks()
     {
         // TODO: Implement browseBooks method
+        int type = 0;
+        while (type < 1 || type > 3)
+        {
+            System.out.print("Enter the type of search (1 -> Title, 2 -> Genre, 3 -> Author): ");
+            type = Integer.parseInt(menuScanner.nextLine());
+        }
+
+        String keyword = "";
+        while (keyword.isEmpty())
+        {
+            System.out.print("Enter the keyword to search for: ");
+            keyword = menuScanner.nextLine();
+        }
+
+        ArrayList<Book> books = new ArrayList<>();
+        switch (type)
+        {
+            case 1:
+                books = bookController.getBooksByTitle(keyword);
+                break;
+            case 2:
+                books = bookController.getBooksByGenre(keyword);
+                break;
+            case 3:
+                books = bookController.getBooksByAuthor(keyword);
+                break;
+        }
+
+        displayKeywordedBooks(books, keyword);
+
+        System.out.println();
+        System.out.println("Press enter to continue...");
+        menuScanner.nextLine();
     }
 
     /**
@@ -155,9 +211,102 @@ public class PatronMenu extends Menu
     private void borrowBook()
     {
         // TODO: Implement borrowBook method
+        String bookId = "";
+        while (bookId.isEmpty())
+        {
+            System.out.print("Enter the ID of the book you want to borrow: ");
+            bookId = menuScanner.nextLine();
+        }
+
+        Book book = bookController.getBookById(bookId);
+        if (book == null)
+        {
+            System.out.println("Book not found with ID '" + bookId + "'.");
+        }
+        else
+        {
+            if (book.getStatus().equals("Available"))
+            {
+                Date currentDate = new Date();
+
+                BorrowingRecordFactory borrowingRecordFactory = new BorrowingRecordFactory();
+                BorrowingRecord record = borrowingRecordFactory.createBorrowingRecord(
+                        generateBorrowingRecordId(),
+                        book.getId(),
+                        currentUser.getId(),
+                        null,
+                        "Active",
+                        currentDate,
+                        new Date(currentDate.getTime() + 604800000),
+                        -1,
+                        null
+                );
+
+                borrowingRecordController.addBorrowingRecord(record);
+
+                System.out.println("Book borrowed successfully.");
+                System.out.println("Press enter to continue...");
+                menuScanner.nextLine();
+            }
+            else
+            {
+                System.out.println("Book is not available for borrowing.");
+            }
+        }
+
     }
 
     // Utilities
+
+    private void displayBooks(ArrayList<Book> books)
+    {
+        if (books.isEmpty())
+        {
+            System.out.println("There are no books in the library yet.");
+        }
+        else
+        {
+            System.out.println(books.size() + " books found in the library:");
+            System.out.println("----------------------------------");
+
+            for (Book book : books)
+            {
+                book.displayDetails();
+            }
+
+            System.out.println("----------------------------------");
+        }
+    }
+
+    private void displayKeywordedBooks(ArrayList<Book> books, String keyword)
+    {
+        if (books.isEmpty())
+        {
+            System.out.println("No books found with the keyword '" + keyword + "'.");
+        }
+        else
+        {
+            System.out.println(books.size() + " book(s) found with the keyword '" + keyword + "':");
+            System.out.println("----------------------------------");
+
+            for (Book book : books)
+            {
+                book.displayDetails();
+            }
+
+            System.out.println("----------------------------------");
+        }
+    }
+
+    // Helpers
+
+    private String generateBorrowingRecordId()
+    {
+        BorrowingRecord borrowingRecord = borrowingRecordController.getLatestBorrowingRecord();
+        int latestNumber = Integer.parseInt(borrowingRecord.getId().substring(3));
+
+        return String.format("RID%04d", latestNumber + 1);
+    }
 
     // Overrides
 
@@ -197,10 +346,9 @@ public class PatronMenu extends Menu
                     System.out.println("Invalid choice. Please try again.");
                     break;
             }
-        }
 
-        System.out.println("Exiting the program...");
-        System.exit(0);
+            System.out.println();
+        }
     }
 
     /**

@@ -1,5 +1,9 @@
 package menus;
 
+import controllers.BookController;
+import controllers.BorrowingRecordController;
+import controllers.UserController;
+
 import java.util.*;
 
 /**
@@ -20,6 +24,10 @@ public abstract class Menu
     {
         menuScanner = new Scanner(System.in);
         isRunning = true;
+
+        bookController = new BookController();
+        borrowingRecordController = new BorrowingRecordController();
+        userController = new UserController();
     }
 
     // Properties
@@ -33,6 +41,21 @@ public abstract class Menu
      * Boolean flag to indicate if the menu is running.
      */
     protected boolean isRunning;
+
+    /**
+     * The book controller to manage book data.
+     */
+    protected BookController bookController;
+
+    /**
+     * The borrowing record controller to manage borrowing record data.
+     */
+    protected BorrowingRecordController borrowingRecordController;
+
+    /**
+     * The user controller to manage user data.
+     */
+    protected UserController userController;
 
     // Menu Methods
 
