@@ -11,6 +11,13 @@ public abstract class UserFactory
     // Methods
 
     /**
+     * Creates a new User instance with default values.
+     *
+     * @return A new User instance.
+     */
+    public abstract User createUser();
+
+    /**
      * Creates a new User instance.
      *
      * @param id The unique identifier for the user.

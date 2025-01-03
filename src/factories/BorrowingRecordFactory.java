@@ -13,6 +13,26 @@ public class BorrowingRecordFactory
     // Methods
 
     /**
+     * Creates a new borrowing record with default values.
+     *
+     * @return The borrowing record.
+     */
+    public BorrowingRecord createBorrowingRecord()
+    {
+        return new BorrowingRecord(
+                "RID000",
+                "BID000",
+                "UID000",
+                "UID000",
+                "Active",
+                new Date(),
+                new Date(),
+                -1,
+                new Date()
+        );
+    }
+
+    /**
      * Creates a new borrowing record.
      *
      * @param id The unique identifier for the borrowing record.
@@ -26,9 +46,28 @@ public class BorrowingRecordFactory
      * @param returnDate The date when the book was actually returned.
      * @return The borrowing record.
      */
-    public static BorrowingRecord createBorrowingRecord(String id, String bookId, String patronId, String librarianId, String recordStatus, Date borrowingDate, Date dueDate, int requestState, Date returnDate)
+    public BorrowingRecord createBorrowingRecord(
+            String id,
+            String bookId,
+            String patronId,
+            String librarianId,
+            String recordStatus,
+            Date borrowingDate,
+            Date dueDate,
+            int requestState,
+            Date returnDate)
     {
-        return new BorrowingRecord(id, bookId, patronId, librarianId, recordStatus, borrowingDate, dueDate, requestState, returnDate);
+        return new BorrowingRecord(
+                id,
+                bookId,
+                patronId,
+                librarianId,
+                recordStatus,
+                borrowingDate,
+                dueDate,
+                requestState,
+                returnDate
+        );
     }
 
 }

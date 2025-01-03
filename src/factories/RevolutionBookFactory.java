@@ -8,6 +8,27 @@ public class RevolutionBookFactory extends BookFactory
     // Methods
 
     /**
+     * Creates a new RevolutionBook instance with default values.
+     *
+     * @return A new RevolutionBook instance.
+     */
+    @Override
+    public Book createBook()
+    {
+        return new RevolutionBook(
+                "BID000",
+                "Untitled Revolution",
+                "Revolution",
+                "No description available.",
+                "Unknown Author",
+                "Unknown Publisher",
+                0,
+                "0000000000000",
+                "Available"
+        );
+    }
+
+    /**
      * Creates a new RevolutionBook instance.
      *
      * @param id The unique identifier for the book.

@@ -12,6 +12,22 @@ public class PatronFactory extends UserFactory
     // Methods
 
     /**
+     * Creates a new Patron instance with default values.
+     *
+     * @return A new Patron instance.
+     */
+    @Override
+    public User createUser()
+    {
+        return new Patron(
+                "UID000",
+                "Default",
+                "default@email.com",
+                "default"
+        );
+    }
+
+    /**
      * Creates a new Patron instance.
      *
      * @param id The unique identifier for the patron.
@@ -21,9 +37,18 @@ public class PatronFactory extends UserFactory
      * @return A new Patron instance.
      */
     @Override
-    public User createUser(String id, String username, String email, String password)
+    public User createUser(
+            String id,
+            String username,
+            String email,
+            String password)
     {
-        return new Patron(id, username, email, password);
+        return new Patron(
+                id,
+                username,
+                email,
+                password
+        );
     }
 
 }

@@ -8,6 +8,27 @@ public class MilitaryHistoryBookFactory extends BookFactory
     // Methods
 
     /**
+     * Creates a new MilitaryHistoryBook instance with default values.
+     *
+     * @return A new MilitaryHistoryBook instance.
+     */
+    @Override
+    public Book createBook()
+    {
+        return new MilitaryHistoryBook(
+                "BID000",
+                "Untitled History",
+                "Military History",
+                "No description available.",
+                "Unknown Author",
+                "Unknown Publisher",
+                0,
+                "0000000000000",
+                "Available"
+        );
+    }
+
+    /**
      * Creates a new MilitaryHistoryBook instance.
      *
      * @param id The unique identifier for the book.
@@ -22,9 +43,28 @@ public class MilitaryHistoryBookFactory extends BookFactory
      * @return A new MilitaryHistoryBook instance.
      */
     @Override
-    public Book createBook(String id, String title, String genre, String description, String author, String publisher, int publicationYear, String isbn, String status)
+    public Book createBook(
+            String id,
+            String title,
+            String genre,
+            String description,
+            String author,
+            String publisher,
+            int publicationYear,
+            String isbn,
+            String status)
     {
-        return new MilitaryHistoryBook(id, title, genre, description, author, publisher, publicationYear, isbn, status);
+        return new MilitaryHistoryBook(
+                id,
+                title,
+                genre,
+                description,
+                author,
+                publisher,
+                publicationYear,
+                isbn,
+                status
+        );
     }
 
 }

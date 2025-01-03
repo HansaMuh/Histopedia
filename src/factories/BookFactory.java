@@ -11,6 +11,13 @@ public abstract class BookFactory
     // Methods
 
     /**
+     * Creates a new Book instance with default values.
+     *
+     * @return A new Book instance.
+     */
+    public abstract Book createBook();
+
+    /**
      * Creates a new Book instance.
      *
      * @param id The unique identifier for the book.
@@ -24,6 +31,15 @@ public abstract class BookFactory
      * @param status The current status of the book (e.g., Available, Borrowed, Unavailable).
      * @return A new Book instance.
      */
-    public abstract Book createBook(String id, String title, String genre, String description, String author, String publisher, int publicationYear, String isbn, String status);
+    public abstract Book createBook(
+            String id,
+            String title,
+            String genre,
+            String description,
+            String author,
+            String publisher,
+            int publicationYear,
+            String isbn,
+            String status);
 
 }

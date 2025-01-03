@@ -8,6 +8,27 @@ public class BiographyBookFactory extends BookFactory
     // Methods
 
     /**
+     * Creates a new BiographyBook instance with default values.
+     *
+     * @return A new BiographyBook instance.
+     */
+    @Override
+    public Book createBook()
+    {
+        return new BiographyBook(
+                "BID000",
+                "Untitled Biography",
+                "Biography",
+                "No description available.",
+                "Unknown Author",
+                "Unknown Publisher",
+                0,
+                "0000000000000",
+                "Available"
+        );
+    }
+
+    /**
      * Creates a new BiographyBook instance.
      *
      * @param id The unique identifier for the book.
@@ -22,9 +43,28 @@ public class BiographyBookFactory extends BookFactory
      * @return A new BiographyBook instance.
      */
     @Override
-    public Book createBook(String id, String title, String genre, String description, String author, String publisher, int publicationYear, String isbn, String status)
+    public Book createBook(
+            String id,
+            String title,
+            String genre,
+            String description,
+            String author,
+            String publisher,
+            int publicationYear,
+            String isbn,
+            String status)
     {
-        return new BiographyBook(id, title, genre, description, author, publisher, publicationYear, isbn, status);
+        return new BiographyBook(
+                id,
+                title,
+                genre,
+                description,
+                author,
+                publisher,
+                publicationYear,
+                isbn,
+                status
+        );
     }
 
 }
